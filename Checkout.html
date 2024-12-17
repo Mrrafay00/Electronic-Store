@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronic Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .list-group-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #confirmationSection {
+      display: none; /* Hide confirmation by default */
+      border: 2px dashed #4CAF50; /* Border for emphasis */
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #f9f9f9; /* Light background for contrast */
+      border-radius: 8px; /* Rounded corners */
+    }
+    #confirmationDetails {
+      font-family: Arial, sans-serif; /* Font style */
+      line-height: 1.5; /* Better line spacing */
+    }
+    #confirmationDetails h3 {
+      color: #4CAF50; /* Green color for headings */
+    }
+    #confirmationDetails p {
+      margin: 5px 0; /* Margins for paragraphs */
+    }
+    #confirmationDetails ul {
+      list-style-type: none; /* Remove bullet points */
+      padding-left: 0; /* Remove default padding */
+    }
+    #confirmationDetails ul li {
+      padding: 5px 0; /* Padding for list items */
+    }
+    .download-btn {
+      position: absolute; /* Positioning the button */
+      top: 20px; /* Distance from the top */
+      right: 20px; /* Distance from the right */
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-warning-subtle">
+    <div class="container">
+      <a class="navbar-brand fs-2" href="Home.html">Electronic Store</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0 fs-4" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Shop-now.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Product.html">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Checkout.html">Checkout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="checkout-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Order Summary</h2>
+          <ul class="list-group mb-4" id="orderSummary">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Wearable-Technology ($2000)
+              <a href="#" class="btn btn-secondary btn-sm add-to-cart" data-price="2000">Buy</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Sony Playstation 5 ($700)
+              <a href="#" class="btn btn-secondary btn-sm add-to-cart" data-price="700">Buy</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Smartphones ($498 billion)
+              <a href="#" class="btn btn-secondary btn-sm add-to-cart" data-price="498 billion">Buy</a>
+            </li>
+          </ul>
+          <div id="totalAmount" style="display: none;">
+            <strong>Total:</strong>
+            <strong id="total">$0.00</strong>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h2>Customer Information</h2>
+          <form id="customerForm">
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="customerName" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="customerEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="shippingAddress" class="form-label">Shipping Address</label>
+              <input type="text" class="form-control" id="shippingAddress" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerContact" class="form-label">Contact Number</label>
+              <input type="tel" class="form-control" id="customerContact" required>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <h2>Payment Options</h2>
+          <form>
+            <div class="mb-3">
+              <label for="paymentMethod" class="form-label">Select Payment Method</label>
+              <select class="form-select" id="paymentMethod" required>
+                <option>Credit/Debit Card</option>
+                <option>PayPal</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="cardNumber" class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="cardNumber" required>
+            </div>
+            <div class="mb-3">
+              <label for="cardExpiry" class="form-label">Expiry Date</label>
+              <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" required>
+            </div>
+            <div class="mb-3">
+              <label for="cardCVC" class="form-label">CVC</label>
+              <input type="text" class="form-control" id="cardCVC" required>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <h2>Billing Address</h2>
+          <form>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="sameAsShipping">
+              <label class="form-check-label" for="sameAsShipping">
+                Same as Shipping Address
+              </label>
+            </div>
+            <div class="mb-3">
+              <label for="billingAddress" class="form-label">Billing Address</label>
+              <input type="text" class="form-control" id="billingAddress" disabled>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button class="btn btn-success btn-lg" id="confirmOrder">Confirm Order</button>
+      </div>
+
+      <div id="confirmationSection">
+        <h2>Order Confirmation</h2>
+        <div id="confirmationDetails"></div>
+        <button class="btn btn-primary mt-3 download-btn" id="downloadConfirmation">Download Confirmation</button>
+      </div>
+    </div>
+  </section>
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-3 col-<div class="col-12 col-lg-3 col-md-6">
+            <img src="./image/eletrclogo.jpg">
+            <p class="text-body-tertiary"><span class="fw-bolder">Welcome to Electro Shop – Your Hub for Quality Electronics!</span>
+              <br>Discover the best in home appliances, gadgets, and energy solutions. Affordable prices, top-tier products, and seamless shopping, all in one place.
+              <br>
+              <span class="fw-bold">Shop Smart, Shop Electro!</span></p> 
+            <div class="icon-link">
+              <p class="text-body-tertiary d-flex justify-content-between align-items-center gap-5">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-6">
+            <h5 class="text-uppercase fs-3 text-body-tertiary">Quick Links</h5>
+            <ul class="menu-list list-unstyled text-uppercase text-body-tertiary">
+              <li class="menu-item"><a href="Home.html" class="text-body text-decoration-none py-2 text-body-tertiary">Home</a></li>
+              <li class="menu-item"><a href="Product.html" class="text-body text-decoration-none py-2 text-body-tertiary">Product</a></li>
+              <li class="menu-item"><a href="Checkout.html" class="text-body text-decoration-none py-2 text-body-tertiary">Checkout</a></li>
+              <li class="menu-item"><a href="Shop-now.html" class="text-body text-decoration-none py-2 text-body-tertiary">Shop-now</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3 col-md-6">
+            <h5 class="text-uppercase fs-3 text-body-tertiary">Help & Info Help</h5>
+            <div class="text-uppercase text-body-tertiary">
+              <p><span class="fw-bolder">Customer Service:</span> Facing issues with your order or have a question? Reach out to our support team.</p>
+              <p><span class="fw-bolder">Customer Service:</span> Find quick answers to common questions about products, orders, and payments.</p>
+              <p><span class="fw-bolder">Shipping & Returns: </span> Get detailed information on our shipping policies and easy returns process.</p> 
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-6">
+            <h5 class="text-uppercase fs-3 text-body-tertiary">Contact Us</h5>
+            <p class="text-body-tertiary">Do you have any queries or suggestions?</p>
+            <a href="" class="text-body text-decoration-none text-black-50">yourinfo@gmail.com</a>
+            <p class="text-body-tertiary">Do you have any queries or suggestions?</p>
+            <a href="" class="text-body text-decoration-none text-black-50">+55 111 222 333 44</a>
+          </div>
+          <hr>
+          <div class="row pt-4 pb-0">
+            <div class="col-12 col-lg-4 col-md-4">
+              <div class="text-body-tertiary d-flex">
+                <p>We ship with:</p>
+                <div class="card-wrap ps-2">
+                  <img class="w-25" src="./image/partnership1.jpg">
+                  <img class="w-25" src="./image/partnership2.jpg">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4">
+              <div class="text-body-tertiary d-flex">
+                <p>Payment options:</p>
+                <div class="card-wrap ps-2">
+                  <img src="https://themewagon.github.io/MiniStore/images/visa.jpg">
+                  <img src="https://themewagon.github.io/MiniStore/images/mastercard.jpg">
+                  <img src="https://themewagon.github.io/MiniStore/images/paypal.jpg">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4">
+              <div class="copyright">
+                <p>© 2024 Electronic Store. All rights reserved.</p>
+                <p>Contact us: <a href="mailto:info@electronicstore.com" class="text-body-tertiary">info@electronicstore.com</a></p>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </section>
+          
+          <script>
+            let totalAmount = 0;
+          
+            // Add to cart functionality
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+              button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const price = parseFloat(this.getAttribute('data-price'));
+                totalAmount += price; // Add price to total
+                document.getElementById('total').innerText = `$${totalAmount.toFixed(2)}`; // Update total
+                document.getElementById('totalAmount').style.display = 'block'; // Show total amount
+              });
+            });
+          
+            // Confirm order button functionality
+            document.getElementById('confirmOrder').addEventListener('click', function() {
+              // Gather customer information
+              const name = document.getElementById('customerName').value;
+              const email = document.getElementById('customerEmail').value;
+              const address = document.getElementById('shippingAddress').value;
+              const contact = document.getElementById('customerContact').value;
+          
+              // Get current date and time
+              const now = new Date();
+              const dateString = now.toLocaleDateString();
+              const timeString = now.toLocaleTimeString();
+          
+              // Calculate delivery date (one week later)
+              const deliveryDate = new Date(now);
+              deliveryDate.setDate(deliveryDate.getDate() + 7); // Add one week
+              const deliveryDateString = deliveryDate.toLocaleDateString();
+              const deliveryTime = "2:00 PM"; // Fixed delivery time
+          
+              // Create confirmation message
+              const confirmationMessage = `
+                <h3>Thank you for your order, ${name}!</h3>
+                <p>Order Date: ${dateString}</p>
+                <p>Order Time: ${timeString}</p>
+                <p>Delivery Date: ${deliveryDateString}</p>
+                <p>Delivery Time: ${deliveryTime}</p>
+                <p>Contact Number: ${contact}</p>
+                <p>Shipping Address: ${address}</p>
+                <h4>Order Summary</h4>
+                <p>Total Amount: <strong>${totalAmount.toFixed(2)}</strong></p>
+              `;
+              document.getElementById('confirmationDetails').innerHTML = confirmationMessage;
+              document.getElementById('confirmationSection').style.display = 'block'; // Show confirmation section
+            });
+          
+            // Download confirmation button functionality
+            document.getElementById('downloadConfirmation').addEventListener('click', function() {
+              const confirmationDetails = document.getElementById('confirmationDetails').innerHTML;
+              const blob = new Blob([confirmationDetails], { type: 'text/html' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = 'order_confirmation.html';
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+            });
+          </script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+          </body>
+          </html>

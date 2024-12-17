@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearable-Technology Page - Electronic Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #Track-height , #glass-height{
+            height: 320px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-warning-subtle">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-2" href="Home.html">Electronic Store</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse flex-grow-0 fs-4" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Shop-now.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Product.html">Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Checkout.html">Checkout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <!-- Product Section -->
+    <section class="product-details py-5">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Product Image -->
+                <div class="col-md-6">
+                   <img src="./image/Wearable Technology.jpg" class="w-100 img-fluid" alt="Product Image">
+                </div>
+                <!-- Product Info -->
+                <div class="col-md-6">
+                    <h1 class="Wearable-Technology">Wearable-Technology</h1>
+                    <p class="Wearable-Technology-description">
+                        Wearable technology consists of electronic devices worn on the body, like fitness trackers and smartwatches. These gadgets monitor health metrics (like heart rate and activity levels), connect to smartphones for notifications, and often feature GPS for navigation. They help users track fitness goals, monitor health conditions, and enhance daily life through data analysis and integration with apps. Examples include Fitbit, Apple Watch, and smart glasses. Overall, wearable tech improves health management and personal convenience.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li><strong>Size:</strong> large</li>
+                        <li><strong>Weight:</strong> 4.5 kg</li>
+                        <li><strong>Color Options:</strong> Black, White</li>
+                    </ul>
+                    <p class="product-price fs-3 text-danger">$2000</p>
+                    <a href="Checkout.html" class="btn btn-warning btn-lg">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews py-5 bg-light">
+        <div class="container-fluid">
+            <h2 class="text-center">Customer Reviews</h2>
+            <div id="comments-list">
+                <div class="review">
+                    <h5>Amna Raza</h5>
+                    <p class="rating">⭐⭐⭐⭐⭐</p>
+                    <p>Smartwatch ka experience lajawab hai! Health tracking features se meri fitness routine behter hui hai.</p>
+                </div>
+                <hr>
+                <div class="review">
+                    <h5>Bilal Ahmed</h5>
+                    <p class="rating">⭐⭐⭐⭐</p>
+                    <p>Wireless earbuds ki sound quality behtareen hai! Lekin battery life thodi aur behtar ho sakti thi.</p>
+                </div>
+                <hr>
+                <div class="review">
+                    <h5>Fatima Noor</h5>
+                    <p class="rating">⭐⭐⭐⭐⭐</p>
+                    <p>Fitness band ne meri activity ko track karna itna asaan kar diya. Notifications bhi waqt par milte hain!</p>
+                </div>
+                <hr>
+                <div class="review">
+                    <h5>Hamza Khan</h5>
+                    <p class="rating">⭐⭐⭐</p>
+                    <p>Smart glasses ka design zabardast hai, lekin features aur functionality aur improve ho sakti hai.</p>
+                </div>
+                <hr>
+            </div>
+    
+            <h4>Leave a Review</h4>
+            <form id="review-form">
+                <div class="mb-3">
+                    <label for="reviewerName" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="reviewerName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reviewRating" class="form-label">Rating</label>
+                    <select class="form-select" id="reviewRating" required>
+                        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                        <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                        <option value="⭐⭐⭐">⭐⭐⭐</option>
+                        <option value="⭐⭐">⭐⭐</option>
+                        <option value="⭐">⭐</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="reviewText" class="form-label">Review</label>
+                    <textarea class="form-control" id="reviewText" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <!-- Similar Products Section -->
+    <section class="similar-products py-5">
+        <div class="container-fluid">
+            <h2 class="text-center">Similar Products</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Smartwatch -->
+                <div class="col">
+                    <div class="card">
+                        <img src="./image/smartwatches.jpg" class="card-img-top" alt="Smartwatch">
+                        <div class="card-body">
+                            <h5 class="card-title">Smartwatch</h5>
+                            <p class="card-text">$99.99</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fitness Trackers -->
+                <div class="col">
+                    <div class="card">
+                        <img src="./image/fitness-trackers.avif" class="card-img-top" id="Track-height" alt="Fitness Trackers">
+                        <div class="card-body">
+                            <h5 class="card-title">Fitness Trackers</h5>
+                            <p class="card-text">$249.99</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Smart Glasses -->
+                <div class="col">
+                    <div class="card">
+                        <img src="./image/smart-glasses.avif" class="card-img-top" id="glass-height" alt="Smart Glasses">
+                        <div class="card-body">
+                            <h5 class="card-title">Smart Glasses</h5>
+                            <p class="card-text">$299.99</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container-fluid text-center">
+            <p>© 2024 Electronic Store. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@electronicstore.com" class="text-warning">info@electronicstore.com</a></p>
+            <div class="social-links">
+                <a href="#" class="text-light">Facebook</a> |
+                <a href="#" class="text-light">Twitter</a> |
+                <a href="#" class="text-light">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript to handle comments -->
+    <script>
+        // Wait for the DOM to fully load
+        document.addEventListener("DOMContentLoaded", function() {
+            const reviewForm = document.getElementById('review-form');
+            const commentsList = document.getElementById('comments-list');
+
+            // Function to create a new comment element
+            function createReviewElement(name, rating, text) {
+                const review = document.createElement('div');
+                review.classList.add('review');
+                review.innerHTML = `
+                    <h5>${name}</h5>
+                    <p class="rating">${rating}</p>
+                    <p>${text}</p>
+                    <hr>
+                `;
+                return review;
+            }
+
+            // Handle form submission
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('reviewerName').value;
+                const rating = document.getElementById('reviewRating').value;
+                const reviewText = document.getElementById('reviewText').value;
+
+                // Create a new review element
+                const newReview = createReviewElement(name, rating, reviewText);
+                
+                // Add the new review to the comments list
+                commentsList.appendChild(newReview);
+
+                // Clear the form after submission
+                reviewForm.reset();
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

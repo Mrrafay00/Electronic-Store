@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page - Electronic Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #switch-height ,
+        #steam-height{
+            height: 308px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-warning-subtle">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-2" href="Home.html">Electronic Store</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse flex-grow-0 fs-4" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Shop-now.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Product.html">Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Checkout.html">Checkout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <!-- Product Section -->
+    <section class="product-details py-5">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Product Image -->
+                <div class="col-md-6">
+                   <img src="data:image/jpeg;base64,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" class="w-100 img-fluid" alt="Product Image">
+                </div>
+                <!-- Product Info -->
+                <div class="col-md-6">
+                    <h1 class="product-name">Sony Playstation 5</h1>
+                    <p class="product-description">
+                        ony PlayStation 5 is a high-performance gaming console with stunning graphics, fast loading, and exclusive games. It supports 4K and HDR, with a controller featuring haptic feedback and adaptive triggers.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li><strong>Size:</strong> large</li>
+                        <li><strong>Weight:</strong> 4.5 kg</li>
+                        <li><strong>Color Options:</strong> Black, White</li>
+                    </ul>
+                    <p class="product-price fs-3 text-danger">$700</p>
+                    <a href="Checkout.html" class="btn btn-warning btn-lg">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews py-5 bg-light">
+        <div class="container-fluid">
+            <h2 class="text-center">Customer Reviews</h2>
+            <div id="comments-list">
+                <div class="review">
+                    <h5>Ali Khan</h5>
+                    <p class="rating">⭐⭐⭐⭐⭐</p>
+                    <p>PlayStation 5 ka experience behtareen hai! Graphics kaafi zabardast hain aur loading times bahut kam hain.</p>
+                </div>
+                <hr>
+                <div class="review">
+                    <h5>Sara Malik</h5>
+                    <p class="rating">⭐⭐⭐⭐</p>
+                    <p>Exclusive games ka maza alag hai! Lekin thodi aur storage ki zarurat hai.</p>
+                </div>
+                <hr>
+                <div class="review">
+                    <h5>Omar Farooq</h5>
+                    <p class="rating">⭐⭐⭐⭐⭐</p>
+                    <p>DualSense controller ka haptic feedback amazing hai. Har game ka experience enhance hota hai!</p>
+                </div>
+                <hr>
+                <div class="review">
+                    <h5>Nida Iqbal</h5>
+                    <p class="rating">⭐⭐⭐</p>
+                    <p>Game library bahut acchi hai, lekin price thodi zyada hai. Overall, achi gaming console hai.</p>
+                </div>
+                <hr>
+            </div>
+            
+            
+            <h4>Leave a Review</h4>
+            <form id="review-form">
+                <div class="mb-3">
+                    <label for="reviewerName" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="reviewerName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reviewRating" class="form-label">Rating</label>
+                    <select class="form-select" id="reviewRating" required>
+                        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                        <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                        <option value="⭐⭐⭐">⭐⭐⭐</option>
+                        <option value="⭐⭐">⭐⭐</option>
+                        <option value="⭐">⭐</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="reviewText" class="form-label">Review</label>
+                    <textarea class="form-control" id="reviewText" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Similar Products Section -->
+    <section class="similar-products py-5">
+        <div class="container-fluid">
+            <h2 class="text-center">Similar Products</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Microsoft Xbox Series X -->
+                <div class="col">
+                    <div class="card">
+                        <img src="./image/xbox-series.jpeg" class="card-img-top" alt="Microsoft Xbox Series X">
+                        <div class="card-body">
+                            <h5 class="card-title">Microsoft Xbox Series X</h5>
+                            <p class="card-text">$199.99</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nintendo Switch OLED -->
+                <div class="col">
+                    <div class="card">
+                        <img src="./image/nint-switch.jpeg" class="card-img-top" id="switch-height" alt="Nintendo Switch OLED">
+                        <div class="card-body">
+                            <h5 class="card-title">Nintendo Switch OLED</h5>
+                            <p class="card-text">$249.99</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Valve Steam Deck -->
+                <div class="col">
+                    <div class="card">
+                        <img src="./image/valve-steam.jpeg" class="card-img-top" id="steam-height" alt="Valve Steam Deck">
+                        <div class="card-body">
+                            <h5 class="card-title">Valve Steam Deck</h5>
+                            <p class="card-text">$299.99</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="py-5">
+        <div class="container-fluid">
+           <div class="row">
+              <div class="col-12 col-lg-3 col-md-6">
+                 <img src="./image/eletrclogo.jpg">
+                 <p class="text-body-tertiary"><span class="fw-bolder">Welcome to Electro Shop – Your Hub for Quality Electronics!</span>
+                    <br>Discover the best in home appliances, gadgets, and energy solutions. Affordable prices, top-tier products, and seamless shopping, all in one place.
+                    <br>
+                    <span class="fw-bold">Shop Smart, Shop Electro!</span></p>  
+                 <div class="icon-link">
+                    <p class="text-body-tertiary d-flex justify-content-between align-items-center gap-5">
+                       <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                       <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                       <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                       <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                       <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </p>
+                 </div>
+              </div>
+              <div class="col-12 col-lg-3 col-md-6">
+                 <h5 class="text-uppercase fs-3 text-body-tertiary">Quick Links</h5>
+                 <ul class="menu-list list-unstyled text-uppercase text-body-tertiary">
+                    <li class="menu-item"><a href="Home.html" class="text-body text-decoration-none py-2 text-body-tertiary">Home</a></li>
+                    <li class="menu-item"><a href="Product.html" class="text-body text-decoration-none py-2 text-body-tertiary">Product</a></li>
+                    <li class="menu-item"><a href="Checkout.html" class="text-body text-decoration-none py-2 text-body-tertiary">Checkout</a></li>
+                    <li class="menu-item"><a href="Shop-now.html" class="text-body text-decoration-none py-2 text-body-tertiary">Shop-now</a></li>
+                 </ul>
+              </div>
+              <div class="col-12 col-lg-3 col-md-6">
+                 <h5 class="text-uppercase fs-3 text-body-tertiary">Help & Info Help</h5>
+                 <div class="text-uppercase text-body-tertiary">
+                    <p><span class="fw-bolder">Customer Service:</span> Facing issues with your order or have a question? Reach out to our support team.</p>
+                    <p><span class="fw-bolder">Customer Service:</span> Find quick answers to common questions about products, orders, and payments.</p>
+                    <p><span class="fw-bolder">Shipping & Returns: </span> Get detailed information on our shipping policies and easy returns process.</p> 
+                </div>
+              </div>
+              <div class="col-12 col-lg-3 col-md-6">
+                 <h5 class="text-uppercase fs-3 text-body-tertiary">Contact Us</h5>
+                 <p class="text-body-tertiary">Do you have any queries or suggestions?</p>
+                 <a href="" class="text-body text-decoration-none text-black-50">yourinfo@gmail.com</a>
+                 <p class="text-body-tertiary">Do you have any queries or suggestions?</p>
+                 <a href="" class="text-body text-decoration-none text-black-50">+55 111 222 333 44</a>
+              </div>
+              <hr>
+              <div class="row pt-4 pb-0">
+                 <div class="col-12 col-lg-4 col-md-4">
+                    <div class="text-body-tertiary d-flex">
+                       <p>We ship with:</p>
+                       <div class="card-wrap ps-2">
+                          <img class="w-25" src="./image/partnership1.jpg">
+                          <img class="w-25" src="./image/partnership2.jpg">
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-12 col-lg-4 col-md-4">
+                    <div class="text-body-tertiary d-flex">
+                       <p>Payment options:</p>
+                       <div class="card-wrap ps-2">
+                          <img src="https://themewagon.github.io/MiniStore/images/visa.jpg">
+                          <img src="https://themewagon.github.io/MiniStore/images/mastercard.jpg">
+                          <img src="https://themewagon.github.io/MiniStore/images/paypal.jpg">
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-12 col-lg-4 col-md-4">
+                    <div class="copyright">
+                        <p>© 2024 Electronic Store. All rights reserved.</p>
+                        <p>Contact us: <a href="mailto:info@electronicstore.com" class="text-body-tertiary">info@electronicstore.com</a></p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+
+    <!-- JavaScript to handle comments -->
+    <script>
+        // Wait for the DOM to fully load
+        document.addEventListener("DOMContentLoaded", function() {
+            const reviewForm = document.getElementById('review-form');
+            const commentsList = document.getElementById('comments-list');
+
+            // Function to create a new comment element
+            function createReviewElement(name, rating, text) {
+                const review = document.createElement('div');
+                review.classList.add('review');
+                review.innerHTML = `
+                    <h5>${name}</h5>
+                    <p class="rating">${rating}</p>
+                    <p>${text}</p>
+                    <hr>
+                `;
+                return review;
+            }
+
+            // Handle form submission
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('reviewerName').value;
+                const rating = document.getElementById('reviewRating').value;
+                const reviewText = document.getElementById('reviewText').value;
+
+                // Create a new review element
+                const newReview = createReviewElement(name, rating, reviewText);
+                
+                // Add the new review to the comments list
+                commentsList.appendChild(newReview);
+
+                // Clear the form after submission
+                reviewForm.reset();
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

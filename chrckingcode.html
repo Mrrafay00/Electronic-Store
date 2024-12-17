@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Electronic Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #confirmationSection {
+            display: none; /* Hide confirmation by default */
+            border: 2px dashed #4CAF50; /* Border for emphasis */
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9; /* Light background for contrast */
+            border-radius: 8px; /* Rounded corners */
+        }
+        #confirmationDetails {
+            font-family: Arial, sans-serif; /* Font style */
+            line-height: 1.5; /* Better line spacing */
+        }
+        #confirmationDetails h3 {
+            color: #4CAF50; /* Green color for headings */
+        }
+        #confirmationDetails p {
+            margin: 5px 0; /* Margins for paragraphs */
+        }
+        #confirmationDetails ul {
+            list-style-type: none; /* Remove bullet points */
+            padding-left: 0; /* Remove default padding */
+        }
+        #confirmationDetails ul li {
+            padding: 5px 0; /* Padding for list items */
+        }
+        .download-btn {
+            position: absolute; /* Positioning the button */
+            top: 20px; /* Distance from the top */
+            right: 20px; /* Distance from the right */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-warning-subtle">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-2" href="Home.html">Electronic Store</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse flex-grow-0 fs-4" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Shop-now.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Product.html">Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Checkout.html">Checkout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section py-5">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Order Summary -->
+                <div class="col-md-6">
+                    <h2>Order Summary</h2>
+                    <ul class="list-group mb-4" id="orderSummary">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Product 1 ($199.99)
+                            <a href="#" class="btn btn-secondary btn-sm add-to-cart" data-price="199.99">Add More</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Product 2 ($99.99)
+                            <a href="#" class="btn btn-secondary btn-sm add-to-cart" data-price="99.99">Add More</a>
+                        </li>
+                    </ul>
+                    <div id="totalAmount" style="display: none;">
+                        <strong>Total:</strong>
+                        <strong id="total">$0.00</strong>
+                    </div>
+                </div>
+
+                <!-- Customer Information Form -->
+                <div class="col-md-6">
+                    <h2>Customer Information</h2>
+                    <form id="customerForm">
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="customerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="customerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="shippingAddress" class="form-label">Shipping Address</label>
+                            <input type="text" class="form-control" id="shippingAddress" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerContact" class="form-label">Contact Number</label>
+                            <input type="tel" class="form-control" id="customerContact" required>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <!-- Payment Options -->
+                <div class="col-md-6">
+                    <h2>Payment Options</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="paymentMethod" class="form-label">Select Payment Method</label>
+                            <select class="form-select" id="paymentMethod" required>
+                                <option>Credit/Debit Card</option>
+                                <option>PayPal</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <!-- Credit Card Details -->
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardExpiry" class="form-label">Expiry Date</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardCVC" class="form-label">CVC</label>
+                            <input type="text" class="form-control" id="cardCVC" required>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Billing Address -->
+                <div class="col-md-6">
+                    <h2>Billing Address</h2>
+                    <form>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="sameAsShipping">
+                            <label class="form-check-label" for="sameAsShipping">
+                                Same as Shipping Address
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="billingAddress" class="form-label">Billing Address</label>
+                            <input type="text" class="form-control" id="billingAddress" disabled>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Confirm Order Button -->
+            <div class="text-center mt-4">
+                <button class="btn btn-success btn-lg" id="confirmOrder">Confirm Order</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Section -->
+    <section id="confirmationSection" class="py-5">
+        <div class="container-fluid">
+            <h2>Order Confirmation</h2>
+            <div id="confirmationDetails"></div>
+            <button class="btn btn-info download-btn" id="downloadConfirmation">Download Confirmation</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container-fluid text-center">
+            <p>© 2024 Electronic Store. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@electronicstore.com" class="text-warning">info@electronicstore.com</a></p>
+            <div class="social-links">
+                <a href="#" class="text-light">Facebook</a> |
+                <a href="#" class="text-light">Twitter</a> |
+                <a href="#" class="text-light">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variables to track total amount
+        let totalAmount = 0;
+
+        // Add event listeners to "Add More" buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                const price = parseFloat(this.getAttribute('data-price'));
+                totalAmount += price; // Update total amount
+                document.getElementById('total').textContent = `$${totalAmount.toFixed(2)}`; // Update total display
+                document.getElementById('totalAmount').style.display = 'block'; // Show total amount
+            });
+        });
+
+        // Confirm order button functionality
+        document.getElementById('confirmOrder').addEventListener('click', function() {
+            // Gather customer information
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+            const address = document.getElementById('shippingAddress').value;
+            const contact = document.getElementById('customerContact').value;
+
+            // Get current date and time
+            const now = new Date();
+            const dateString = now.toLocaleDateString();
+            const timeString = now.toLocaleTimeString();
+
+            // Create confirmation message
+            const confirmationMessage = `
+                <h3>Thank you for your order, ${name}!</h3>
+                <p>Order Date: ${dateString}</p>
+                <p>Order Time: ${timeString}</p>
+                <p>Contact Number: ${contact}</p>
+                <p>Shipping Address: ${address}</p>
+                <h4>Order Summary</h4>
+                <p>Total Amount: <strong>${totalAmount.toFixed(2)}</strong></p>
+            `;
+            document.getElementById('confirmationDetails').innerHTML = confirmationMessage;
+            document.getElementById('confirmationSection').style.display = 'block'; // Show confirmation section
+        });
+
+        // Download confirmation button functionality
+        document.getElementById('downloadConfirmation').addEventListener('click', function() {
+            const confirmationDetails = document.getElementById('confirmationDetails').innerHTML;
+            const blob = new Blob([confirmationDetails], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'order_confirmation.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
